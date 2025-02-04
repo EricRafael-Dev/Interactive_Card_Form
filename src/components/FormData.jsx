@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
 
-function FormData({ setCardNumber, setCardName, setCardExp, setCardCvc }) {
+function FormData({
+  cardNumber,
+  setCardNumber,
+  setCardName,
+  setCardExp,
+  setCardCvc,
+  setSend,
+}) {
   const [mm, setMm] = useState("");
   const [yy, setYy] = useState("");
 
   useEffect(() => {
     setCardExp(`${mm}/${yy}`);
   }, [mm, yy]);
+
+  function verifyInfos() {}
 
   return (
     <div className="w-full">
@@ -22,6 +31,7 @@ function FormData({ setCardNumber, setCardName, setCardExp, setCardCvc }) {
             className=""
             maxLength="16"
             onChange={(e) => setCardName(e.target.value || "Your name")}
+            required
           />
         </div>
         <div>
@@ -32,10 +42,12 @@ function FormData({ setCardNumber, setCardName, setCardExp, setCardCvc }) {
             className=""
             maxLength="16"
             pattern="([0-9]{16})"
-            onChange={(e) =>
-              setCardNumber(e.target.value || "Insert your Card number")
-            }
+            onChange={(e) => setCardNumber(e.target.value || " ")}
+            required
           />
+          {(!cardNumber.trim() === "" || /[a-zA-Z]/.test(cardNumber)) && (
+            <p className="text-red-500">Wrong format, numbers only</p>
+          )}
         </div>
         <div className="flex space-x-4">
           <div className="">
@@ -59,7 +71,9 @@ function FormData({ setCardNumber, setCardName, setCardExp, setCardCvc }) {
                   }
                   setMm(inputValue);
                 }}
+                required
               />
+
               <input
                 type="text"
                 pattern="^([0-9]{2})$"
@@ -70,6 +84,7 @@ function FormData({ setCardNumber, setCardName, setCardExp, setCardCvc }) {
                 onChange={(e) => {
                   setYy(e.target.value);
                 }}
+                required
               />
             </div>
           </div>
@@ -82,10 +97,14 @@ function FormData({ setCardNumber, setCardName, setCardExp, setCardCvc }) {
               pattern="([0-9]{3})"
               className=""
               onChange={(e) => setCardCvc(e.target.value)}
+              required
             />
           </div>
         </div>
-        <button className="bg-[#21092f] text-white font-semibold h-[45px] rounded-md cursor-pointer hover:bg-[#3a0e5d]">
+        <button
+          onSubmit={(e) => {e.preventDefault(); setSend(true); }}
+          className="bg-[#21092f] text-white font-semibold h-[45px] rounded-md cursor-pointer hover:bg-[#3a0e5d]"
+        >
           Confirm
         </button>
       </form>
