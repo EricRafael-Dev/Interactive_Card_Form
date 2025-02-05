@@ -19,7 +19,13 @@ function FormData({
   return (
     <div className={`w-full p-5 ${!send ? "" : "hidden"}`}>
       <form
-        className="flex flex-col space-y-1 gap-4 [&_input]:rounded-md [&_input]:h-[40px] [&_input]:bg-slate-100 [&_input]:border-1 [&_input]:border-[#8e8593] [&_input]:p-3 [&_input]:text-[15px] [&_input]:w-full [&_input]:outline-none [&_p]:text-[10px] font-semibold"
+        className="flex flex-col space-y-1 gap-4 
+        
+        [&_input]:rounded-md [&_input]:h-[40px] [&_input]:bg-slate-100 [&_input]:border-1 [&_input]:border-[#8e8593] [&_input]:p-3 [&_input]:text-[15px] [&_input]:w-full [&_input]:outline-none 
+        
+        [&_p]:text-[10px] 
+        font-semibold
+        min-lg:w-[50vh] min-lg:justify-center min-lg:h-screen bg-black"
         action=""
       >
         <div className="space-y-2">
@@ -98,7 +104,7 @@ function FormData({
               />
             </div>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 w-full">
             <p>CVC</p>
             <input
               type="text"

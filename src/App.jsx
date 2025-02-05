@@ -15,24 +15,36 @@ function App() {
   return (
     <div
       className="bg-slate-100
-      flex flex-col justify-between
+      flex flex-col justify- items-center
       h-screen w-screen relative
       md:flex-row
-      min-[425px]:bg-slate-800
+      
+      
     "
     >
-      <img className="
-      h-[35vh]
-      md:h-full
-      " src={bgMainDesktop} alt="" />
-      <CardsAssets
-        cardNumber={cardNumber}
-        cardName={cardName}
-        cardExp={cardExp}
-        cardCvc={cardCvc}
-        send={send}
+      <img
+        className="
+      absolute top-0
+      h-[35vh] w-screen
+      md:relative md:h-full md:w-[280px] md:top-0 md:left-0
+      min-lg:w-[50vh] min-lg:h-full
+      "
+        src={bgMainDesktop}
+        alt=""
       />
-      <div className=" flex justify-center mt-15">
+      <div className="
+      relative w-[160px] h-full
+      "
+      >
+        <CardsAssets
+          cardNumber={cardNumber}
+          cardName={cardName}
+          cardExp={cardExp}
+          cardCvc={cardCvc}
+          send={send}
+        />
+      </div>
+      <div className=" flex justify-center mt-15 min-lg:w-[80vh]">
         <div className="flex justify-center items-center">
           <Confirm send={send} />
           <FormData
