@@ -25,7 +25,7 @@ function FormData({
         
         [&_p]:text-[10px] 
         font-semibold
-        min-lg:w-[50vh] min-lg:justify-center min-lg:h-screen bg-black"
+        min-lg:w-[50vh] min-lg:justify-center min-lg:h-screen"
         action=""
       >
         <div className="space-y-2">

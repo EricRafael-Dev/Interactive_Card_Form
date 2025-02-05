@@ -15,7 +15,7 @@ function App() {
   return (
     <div
       className="bg-slate-100
-      flex flex-col justify- items-center
+      flex flex-col items-center
       h-screen w-screen relative
       md:flex-row
       
@@ -25,7 +25,7 @@ function App() {
       <img
         className="
       absolute top-0
-      h-[35vh] w-screen
+      h-[25vh] w-screen
       md:relative md:h-full md:w-[280px] md:top-0 md:left-0
       min-lg:w-[50vh] min-lg:h-full
       "
@@ -44,7 +44,8 @@ function App() {
           send={send}
         />
       </div>
-      <div className=" flex justify-center mt-15 min-lg:w-[80vh]">
+      
+      <div className="absolute top-[30vh] flex justify-center pt-10 min-lg:w-[80vh] min-md:static">
         <div className="flex justify-center items-center">
           <Confirm send={send} />
           <FormData
